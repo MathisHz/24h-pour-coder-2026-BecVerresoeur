@@ -1,5 +1,3 @@
-Voici une proposition de fichier `README.md` complète et stylisée pour votre projet. Elle met en avant l'originalité de votre lore (la quête du fromage !) tout en expliquant les mécaniques techniques du jeu.
-
 ***
 
 # 🧀 Expédition Félicien
