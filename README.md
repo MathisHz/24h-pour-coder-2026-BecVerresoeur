@@ -55,4 +55,10 @@ Félicien, dernier descendant d'une lignée de maîtres affineurs-mineurs, s'enf
 
 ---
 
+## 📷 Captures d'écran
+
+![Capture d'écran du niveau 1](img/level1.png)
+![Capture d'écran du shop](img/shop.png)
+
+
 *© 2026 - Équipe BecVerresoeur. Pour la gloire du fromage.*
