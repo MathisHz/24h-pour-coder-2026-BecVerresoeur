@@ -1,112 +1,58 @@
-# 👾 24h pour coder 2026 : TIC-80 & Fennel
+Voici une proposition de fichier `README.md` complète et stylisée pour votre projet. Elle met en avant l'originalité de votre lore (la quête du fromage !) tout en expliquant les mécaniques techniques du jeu.
 
-Préparez-vous à plonger dans le monde du développement de jeux vidéo sous contraintes matérielles. Ce hackathon mettra à l'épreuve votre créativité, votre logique et votre architecture logicielle.
+***
 
-## 🎯 Le Défi
+# 🧀 Expédition Félicien
 
-Votre objectif est de créer un jeu fonctionnel en utilisant **exclusivement** la fantasy console [TIC-80](https://tic80.com/) et le langage **Fennel** (dialecte Lisp).
-
-**Thème de cette édition :** Libre
+**Expédition Félicien** est un jeu d'action/exploration rétro développé pour la console virtuelle **TIC-80**. Incarnez Félicien dans une aventure souterraine épique où le minage, la gestion des ressources et le combat se mêlent à une quête ancestrale unique.
 
 ---
 
-## 🛠️ 1. Prérequis & Installation
+## 📜 Le Lore
+Depuis des générations, la légende raconte l'existence d'un trésor gastronomique perdu dans les profondeurs les plus reculées de la terre : **le dernier Saint-Félicien**. 
 
-Avant de commencer à coder, assurez-vous que chaque membre de l'équipe a configuré son environnement de développement :
-
-1. **[Télécharger TIC-80](https://tic80.com/create)** (Prenez la dernière version pour votre OS).
-2. Ajoutez l'exécutable `tic80` à votre variable d'environnement `PATH` (pour pouvoir le lancer depuis un terminal).
-3. **Éditeur de code :** Nous recommandons vivement [VS Code](https://code.visualstudio.com/) pour sa polyvalence.
-4. **Extensions VS Code recommandées :**
-   - `Fennel` (par *gq* ou *Tangerine*) pour la coloration syntaxique.
-   - `Rainbow Brackets` (indispensable pour survivre aux parenthèses Lisp).
+Félicien, dernier descendant d'une lignée de maîtres affineurs-mineurs, s'enfonce dans les abysses avec sa foreuse géante. Son objectif ? Récupérer le Fromage de ses ancêtres pour restaurer l'honneur de sa famille. Mais attention, les profondeurs sont gardées par des créatures hostiles qui n'ont pas l'intention de partager une miette.
 
 ---
 
-## 🚀 2. Démarrer le projet (Fork & Clone)
+## 🎮 Caractéristiques du Jeu
 
-L'ensemble des commandes nécessaire pour effectuer cette étape sont trouvable via  "[Clean Sheet git](https://training.github.com/downloads/fr/github-git-cheat-sheet.pdf)". Si vous n'êtes pas à l'aise avec github, n'hésitez pas à demander de l'aide à un organisateur, pour ne pas perdre trop de temps. Ce n'est pas le coeur de votre projet.
-
-Un seul membre de l'équipe doit effectuer ces premières étapes :
-
-1. Cliquez sur le bouton "Fork" en haut à droite de cette page pour créer votre propre dépôt d'équipe.
-2. Clonez votre nouveau dépôt sur votre machine locale.
-3. Déposez réguliérement votre travail sur ce repo selon les bonnes pratiques git
-
----
-
-## 🌲 3. La structure du dépôt GitHub (Template)
-
-```text
-hackathon-tic80-template/
-├── assets/
-│   └── game.tic                 # La cartouche vide générée par TIC-80 (via `new fennel`)
-├── src/
-│   └── main.fnl                 # Le starter code (la boucle TIC avec un petit affichage)
-├── docs/                        # TODO
-│   ├── cheatsheet_fennel.md     # Un résumé de la syntaxe
-│   └── api_tic80.md             # Les fonctions TIC-80 autorisées/utiles
-├── .gitignore                   # Ignore les fichiers OS et IDE
-└── README.md                  
-```
+* **Progression par Niveaux :** Traversez 4 zones distinctes, chacune plus profonde et dangereuse que la précédente.
+* **Minage Stratégique :** Collectez des minerais précieux (Orange, Vert, et le rare Rouge à partir du niveau 2) pour améliorer votre équipement.
+* **Système de Foreuse Géante :** Votre vaisseau (5x4 tuiles) est votre seul refuge. Nettoyez la zone de ses minerais pour débloquer la porte et passer au niveau suivant.
+* **Boutique d'Améliorations (Shop) :** Entre chaque niveau, dépensez vos ressources pour booster votre moteur, votre réservoir de fuel ou la puissance de vos lames.
+* **Difficulté Progressive :** À partir du niveau 3, les monstres deviennent plus robustes et infligent deux fois plus de dégâts.
+* **L'Objectif Final :** Trouvez et ramassez l'artefact **Saint-Félicien** au cœur du niveau 4 pour remporter la victoire !
 
 ---
 
-## 💻 4. Workflow
+## ⌨️ Commandes
 
-Pour éviter les conflits Git sur les fichiers binaires, **nous séparons le code (Fennel) des assets (TIC-80)**.
-
-Ouvrez un terminal dans VS Code et lancez cette commande :
-
-```bash
-tic80 --skip --fs . --cmd="load assets/game.tic & import code src/main.fnl"
-```
-
-Cela ouvrira la console de TIC-80. Ensuite, dans cette console, lancez cette commande :
-
-```
-save assets/game.tic
-```
-
-Cela permet de s'assurer que lorsque vous utiliserez les éditeurs de TIC-80 (sprite, map, sfx, music), la sauvegarde se fera dans `assets/game.tic`. Si vous fermez et relancez la console TIC-80, il faut s'assurer que la bonne cartouche (fichier .tic) et le bon code source (main.fnl) soient importés avant de modifier des assets ou lancer le projet. Si cette commande ne fonctionne pas, créer manuellement le dossier `assets` !
-
-Pour lancer votre projet, il vous faut donc importer le code source et les assets. Vous pouvez le faire sur un terminal VS Code avec cette commande :
-
-```bash
-tic80 --skip --fs . --cmd="load assets/game.tic & import code src/main.fnl & run"
-```
-
-Ou directement sur la console TIC-80 en écrivant ces trois commandes succintement :
-
-```
-load assets/game.tic
-import code src/main.fnl
-run
-```
-
-**Comment travailler en équipe :**
-
-* 📝 **Le Code :** Modifiez `src/main.fnl` dans VS Code, sauvegardez (`Ctrl+S`), puis basculez sur la fenêtre TIC-80 et appuyez sur **`Ctrl+R`**. Le jeu se met à jour en direct !
-* 🎨 **Les Assets (Sprites, Map, SFX) :** Ouvrez l'éditeur directement dans TIC-80 (touche `Echap`). Modifiez vos dessins, sauvegardez (`Ctrl+S` dans TIC-80).
-* ⚠️ **ATTENTION SUR GIT :** Vous pouvez coder à plusieurs sur `main.fnl` sans souci. Mais **ne soyez jamais deux à modifier les graphismes/sons dans `game.tic` en même temps**, dite bonjour au conflit Git !
+| Touche | Action |
+| :--- | :--- |
+| **Flèches** | Se déplacer / Miner dans une direction |
+| **Espace (A sur TIC)** | Sauter / Jouer / Valider dans le shop |
+| **A (B sur TIC)** | Poser une échelle |
+| **R** | Recommencer la partie (Game Over / Menu) |
 
 ---
 
-## 📚 5. Ressources et Documentation
+## 🛠️ Fiche Technique
 
-* **[Cheatsheet Fennel dans ce dépôt](./docs/cheatsheet_fennel.md)** : Pour comprendre les boucles, conditions et variables.
-* **[Wiki TIC-80 (API)](https://github.com/nesbox/TIC-80/wiki)** : Pour trouver comment dessiner (`spr`), afficher du texte (`print`), ou lire les inputs (`btn`).
-* **[Tutoriel officiel Fennel](https://fennel-lang.org/tutorial)** : Pour les plus curieux (M2 qui veulent pousser l'architecture fonctionnelle).
+* **Console :** TIC-80
+* **Langage :** Fennel (Lisp compilé en Lua)
+* **Équipe de développement :** **BecVerresoeur**
+* **Moteur de rendu :** Tile-based mapping avec gestion d'offset Y dynamique.
 
 ---
 
-## 🎯 6. Rendu Final :
+## 🚀 Installation et Lancement
 
-Vous avez jusqu'au 16 avril 2026 à 11h pour effectuer des commits sur vos repos personnels. Passé ce délai, si vous effectuez un commit, votre équipe peut être disqualifiée.
+1.  Téléchargez ou ouvrez [TIC-80](https://tic80.com/).
+2.  Copiez le code source du fichier `.fnl`.
+3.  Dans la console TIC-80, tapez `fennel` pour passer en mode Fennel (si nécessaire) ou collez directement dans l'éditeur de code.
+4.  Tapez `run` pour lancer l'expédition !
 
-Votre repo doit contenir :
+---
 
-- Votre code source
-- Un fichier README.md présentant votre projet, son principe et des captures d'écran.
-
-Bonne chance à tous, et que le meilleur code l'emporte ! 🚀
+*© 2026 - Équipe BecVerresoeur. Pour la gloire du fromage.*
